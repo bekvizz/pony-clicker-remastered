@@ -3,6 +3,7 @@ package com.bekvizz.ponyclicker;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,12 +11,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloApplication extends Application {
     private final Image icon = new Image(getClass().getResourceAsStream("/icons/icon_ph.png"));
+    private final Rectangle2D bounds = Screen.getPrimary().getBounds();
 
     @Override
     public void start(Stage stage) {
@@ -44,6 +47,8 @@ public class HelloApplication extends Application {
         stage.setTitle("App");
         stage.getIcons().add(icon);
         stage.show();
+        stage.setX(bounds.getWidth() * 0.5d - stage.getWidth() * 0.5d);
+        stage.setY(bounds.getHeight() * 0.5d - stage.getHeight() * 0.5d);
     }
 
     public static void main(String[] args) {
