@@ -14,8 +14,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class HelloApplication extends Application {
     private final Image icon = new Image(getClass().getResourceAsStream("/icons/icon_ph.png"));
     private final Rectangle2D bounds = Screen.getPrimary().getBounds();
@@ -42,10 +40,12 @@ public class HelloApplication extends Application {
         root.getChildren().add(btn1);
         root.getChildren().add(label);
 
-        Scene scene = new Scene(root, 300d,100d);
+        Scene scene = new Scene(root, 300d,200d);
         stage.setScene(scene);
         stage.setTitle("App");
         stage.getIcons().add(icon);
+        stage.setMinWidth(scene.getWidth());
+        stage.setMinHeight(scene.getHeight());
         stage.show();
         stage.setX(bounds.getWidth() * 0.5d - stage.getWidth() * 0.5d);
         stage.setY(bounds.getHeight() * 0.5d - stage.getHeight() * 0.5d);
